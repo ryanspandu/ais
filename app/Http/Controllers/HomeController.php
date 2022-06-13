@@ -76,9 +76,14 @@ class HomeController extends Controller
         $data[10]['status'] = 'DELIVERED';
 
 
+        $question2 = [1,-1,3,-4,5,-2,7,4,2];
+
+
         // dd($data);
 
-        return view('home')->with('data', $data);
+        return view('home')
+                ->with('data', $data)
+                ->with('data2', $question2);
     }
 
     public function cv(){

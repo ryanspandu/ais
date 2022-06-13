@@ -15,6 +15,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -54,4 +55,12 @@
 
 .table-striped>tbody>tr:nth-of-type(odd){
     background: #B6D7F6 !important;
+}
+
+.table-striped>tbody>tr:nth-of-type(even){
+    background: white !important;
+}
+
+.bg-gray{
+    background: rgb(243, 242, 242);
 }

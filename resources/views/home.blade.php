@@ -20,8 +20,11 @@
 <body>
     <div class="main-nav">
         <div class="content">
-            <img src="{{ asset('logo.png') }}" width="40px"/>
-            <p class="mb-0 fw-bold text-white ms-3">Programmer Test</p>
+            <div class="d-flex flex-row align-items-center">
+                <img src="{{ asset('logo.png') }}" width="40px"/>
+                <p class="mb-0 fw-bold text-white ms-3">Programmer Test</p>
+            </div>
+            <a href="https://github.com/ryanspandu/ais" target="_blank" class="text-white">Github Repo <i class="bi bi-arrow-right text-white"></i></a>
         </div>
     </div>
     <div class="card">
@@ -38,154 +41,193 @@
         <div class="card-body">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Question 1</button>
+                  <button class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">Question 1</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Question 2</button>
+                  <button class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false">Question 2</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Question 3</button>
+                  <button class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false">Question 3</button>
                 </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
                     <img src="{{ asset('1.png') }}" width="100%"/>
                     <hr class="w-100"/>
-                    <p class="fw-bold">Answer :</p>
-                    <table id="example" class="table table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Barcode</th>
-                                <th>Jumlah</th>
-                                <th>Total Harga</th>
-                                <th>Ready</th>
-                                <th>On Hold</th>
-                                <th>Delivered</th>
-                                <th>Packing</th>
-                                <th>Sent</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php 
-                            
-                                $fix_data = []; 
-                                $a = 1; 
-                                $b = 1; 
-                                $v = 0;
-                           
-                                $apple_ready = 0;
-                                $apple_delivered = 0;
-                                $apple_sent = 0;
-                                $apple_onhold = 0;
-                                $apple_packing = 0;
-
-                                $pinapple_ready = 0;
-                                $pinapple_delivered = 0;
-                                $pinapple_sent = 0;
-                                $pinapple_onhold = 0;
-                                $pinapple_packing = 0;
+                    <div class="bg-gray p-3">
+                        <p class="fw-bold">Answer :</p>
+                        <table id="example" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Barcode</th>
+                                    <th>Jumlah</th>
+                                    <th>Total Harga</th>
+                                    <th>Ready</th>
+                                    <th>On Hold</th>
+                                    <th>Delivered</th>
+                                    <th>Packing</th>
+                                    <th>Sent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php 
                                 
-                            @endphp
-                            @foreach($data as $d)
-                                {{-- Get data from barcode 1111 only --}}
-                                @if($d['barcode'] == 1111)
+                                    $fix_data = []; 
+                                    $a = 1; 
+                                    $b = 1; 
+                                    $v = 0;
+                               
+                                    $apple_ready = 0;
+                                    $apple_delivered = 0;
+                                    $apple_sent = 0;
+                                    $apple_onhold = 0;
+                                    $apple_packing = 0;
+    
+                                    $pinapple_ready = 0;
+                                    $pinapple_delivered = 0;
+                                    $pinapple_sent = 0;
+                                    $pinapple_onhold = 0;
+                                    $pinapple_packing = 0;
                                     
-                                    @php 
-                                        $fix_data[0]['barcode'] = 1111;
-                                        if($a == 1){
-                                            $fix_data[0]['total_harga'] = $d['price'];
-                                        }else{
-                                            $fix_data[0]['total_harga'] = $fix_data[0]['total_harga'] + $d['price'];
-                                        }
-
-                                        if($d['status'] == 'READY'){
-                                            $fix_data[0]['ready'] = $apple_ready + 1;
-                                            $apple_ready = $fix_data[0]['ready'] ;
-                                        }else if($d['status'] == 'DELIVERED'){
-                                            $fix_data[0]['delivered'] = $apple_delivered + 1;
-                                            $apple_delivered = $fix_data[0]['delivered'] ;
-                                        }else if($d['status'] == 'ONHOLD'){
-                                            $fix_data[0]['onhold'] = $apple_onhold + 1;
-                                            $apple_onhold = $fix_data[0]['onhold'] ;
-                                        }else if($d['status'] == 'PACKING'){
-                                            $fix_data[0]['packing'] = $apple_packing + 1;
-                                            $apple_packing = $fix_data[0]['packing'] ;
-                                        }else if($d['status'] == 'SENT'){
-                                            $fix_data[0]['sent'] = $apple_sent + 1;
-                                            $apple_sent = $fix_data[0]['sent'] ;
-                                        }
-
-                                        $fix_data[0]['ready'] = $apple_ready;    
-                                        $fix_data[0]['packing'] = $apple_packing;    
-                                        $fix_data[0]['delivered'] = $apple_delivered;    
-                                        $fix_data[0]['onhold'] = $apple_onhold;    
-                                        $fix_data[0]['sent'] = $apple_sent;      
-                                    
-                                        $fix_data[0]['jumlah'] = $a++;
-                            
-                                    @endphp
-                                @endif
-                                {{-- Get data from barcode 1122 only --}}
-                                @if($d['barcode'] == 1122)
-                                    @php 
-                                        $fix_data[1]['barcode'] = 1122;
-                                        if($b == 1){
-                                            $fix_data[1]['total_harga'] = $d['price'];
-                                        }else{
-                                            $fix_data[1]['total_harga'] = $fix_data[1]['total_harga'] + $d['price'];
-                                        }
-
-                                        if($d['status'] == 'READY'){
-                                            $fix_data[1]['ready'] = $pinapple_ready + 1;
-                                            $pinapple_ready = $fix_data[1]['ready'] ;
-                                        }else if($d['status'] == 'DELIVERED'){
-                                            $fix_data[1]['delivered'] = $pinapple_delivered + 1;
-                                            $pinapple_delivered = $fix_data[1]['delivered'] ;
-                                        }else if($d['status'] == 'ONHOLD'){
-                                            $fix_data[1]['onhold'] = $pinapple_onhold + 1;
-                                            $pinapple_onhold = $fix_data[1]['onhold'] ;
-                                        }else if($d['status'] == 'PACKING'){
-                                            $fix_data[1]['packing'] = $pinapple_packing + 1;
-                                            $pinapple_packing = $fix_data[1]['packing'] ;
-                                        }else if($d['status'] == 'SENT'){
-                                            $fix_data[1]['sent'] = $pinapple_sent + 1;
-                                            $pinapple_sent = $fix_data[1]['sent'] ;
-                                        }     
-
-                                        $fix_data[1]['ready'] = $pinapple_ready;    
-                                        $fix_data[1]['packing'] = $pinapple_packing;    
-                                        $fix_data[1]['delivered'] = $pinapple_delivered;    
-                                        $fix_data[1]['onhold'] = $pinapple_onhold;    
-                                        $fix_data[1]['sent'] = $pinapple_sent;                           
-                                    
-                                        $fix_data[1]['jumlah'] = $b++;
-                                    @endphp
-                                @endif
-                            @endforeach
-
-                            @foreach($fix_data as $d)
-                            <tr>
-                                <td>{{ $d['barcode'] }}</td>
-                                <td>{{ $d['jumlah'] }}</td>
-                                <td>{{ $d['total_harga'] }}</td>
-                                <td>{{ $d['ready'] }}</td>
-                                <td>{{ $d['onhold'] }}</td>
-                                <td>{{ $d['delivered'] }}</td>
-                                <td>{{ $d['packing'] }}</td>
-                                <td>{{ $d['sent'] }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="w-100 bg-dark px-3 py-2">
-                        <a href="https://github.com/ryanspandu/ais/blob/master/resources/views/home.blade.php" class="text-success" target="_blank">Source Code</a> 
-                        <i class="bi bi-arrow-right text-success"></i>
+                                @endphp
+                                @foreach($data as $d)
+                                    {{-- Get data from barcode 1111 only --}}
+                                    @if($d['barcode'] == 1111)
+                                        
+                                        @php 
+                                            $fix_data[0]['barcode'] = 1111;
+                                            if($a == 1){
+                                                $fix_data[0]['total_harga'] = $d['price'];
+                                            }else{
+                                                $fix_data[0]['total_harga'] = $fix_data[0]['total_harga'] + $d['price'];
+                                            }
+    
+                                            if($d['status'] == 'READY'){
+                                                $fix_data[0]['ready'] = $apple_ready + 1;
+                                                $apple_ready = $fix_data[0]['ready'] ;
+                                            }else if($d['status'] == 'DELIVERED'){
+                                                $fix_data[0]['delivered'] = $apple_delivered + 1;
+                                                $apple_delivered = $fix_data[0]['delivered'] ;
+                                            }else if($d['status'] == 'ONHOLD'){
+                                                $fix_data[0]['onhold'] = $apple_onhold + 1;
+                                                $apple_onhold = $fix_data[0]['onhold'] ;
+                                            }else if($d['status'] == 'PACKING'){
+                                                $fix_data[0]['packing'] = $apple_packing + 1;
+                                                $apple_packing = $fix_data[0]['packing'] ;
+                                            }else if($d['status'] == 'SENT'){
+                                                $fix_data[0]['sent'] = $apple_sent + 1;
+                                                $apple_sent = $fix_data[0]['sent'] ;
+                                            }
+    
+                                            $fix_data[0]['ready'] = $apple_ready;    
+                                            $fix_data[0]['packing'] = $apple_packing;    
+                                            $fix_data[0]['delivered'] = $apple_delivered;    
+                                            $fix_data[0]['onhold'] = $apple_onhold;    
+                                            $fix_data[0]['sent'] = $apple_sent;      
+                                        
+                                            $fix_data[0]['jumlah'] = $a++;
+                                
+                                        @endphp
+                                    @endif
+                                    {{-- Get data from barcode 1122 only --}}
+                                    @if($d['barcode'] == 1122)
+                                        @php 
+                                            $fix_data[1]['barcode'] = 1122;
+                                            if($b == 1){
+                                                $fix_data[1]['total_harga'] = $d['price'];
+                                            }else{
+                                                $fix_data[1]['total_harga'] = $fix_data[1]['total_harga'] + $d['price'];
+                                            }
+    
+                                            if($d['status'] == 'READY'){
+                                                $fix_data[1]['ready'] = $pinapple_ready + 1;
+                                                $pinapple_ready = $fix_data[1]['ready'] ;
+                                            }else if($d['status'] == 'DELIVERED'){
+                                                $fix_data[1]['delivered'] = $pinapple_delivered + 1;
+                                                $pinapple_delivered = $fix_data[1]['delivered'] ;
+                                            }else if($d['status'] == 'ONHOLD'){
+                                                $fix_data[1]['onhold'] = $pinapple_onhold + 1;
+                                                $pinapple_onhold = $fix_data[1]['onhold'] ;
+                                            }else if($d['status'] == 'PACKING'){
+                                                $fix_data[1]['packing'] = $pinapple_packing + 1;
+                                                $pinapple_packing = $fix_data[1]['packing'] ;
+                                            }else if($d['status'] == 'SENT'){
+                                                $fix_data[1]['sent'] = $pinapple_sent + 1;
+                                                $pinapple_sent = $fix_data[1]['sent'] ;
+                                            }     
+    
+                                            $fix_data[1]['ready'] = $pinapple_ready;    
+                                            $fix_data[1]['packing'] = $pinapple_packing;    
+                                            $fix_data[1]['delivered'] = $pinapple_delivered;    
+                                            $fix_data[1]['onhold'] = $pinapple_onhold;    
+                                            $fix_data[1]['sent'] = $pinapple_sent;                           
+                                        
+                                            $fix_data[1]['jumlah'] = $b++;
+                                        @endphp
+                                    @endif
+                                @endforeach
+    
+                                @foreach($fix_data as $d)
+                                <tr>
+                                    <td>{{ $d['barcode'] }}</td>
+                                    <td>{{ $d['jumlah'] }}</td>
+                                    <td>{{ $d['total_harga'] }}</td>
+                                    <td>{{ $d['ready'] }}</td>
+                                    <td>{{ $d['onhold'] }}</td>
+                                    <td>{{ $d['delivered'] }}</td>
+                                    <td>{{ $d['packing'] }}</td>
+                                    <td>{{ $d['sent'] }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="w-100 bg-dark px-3 py-2">
+                            <a href="https://github.com/ryanspandu/ais/blob/master/resources/views/home.blade.php" class="text-success" target="_blank">Source Code</a> 
+                            <i class="bi bi-arrow-right text-success"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
                     <img src="{{ asset('2.png') }}" width="100%"/>
+                    <div class="bg-gray p-3">
+                        <p class="fw-bold">Answer :</p>
+
+                        @php
+
+                        function findPairs($d){
+                            $fix = [];
+                            $count = 0;
+
+                            $length = count($d) - 1;
+                            $count = 0;
+
+                            for ($i = 0; $i <= $length; $i++) {
+                                for ($j = $i + 1; $j <= $length; $j++) {
+                                    if ($d[$i] + $d[$j] == 0) {
+                                        $fix[$count] = $d[$j];
+                                        $fix[$count] = abs($fix[$count]);
+                                        $count++;
+                                    }
+                                }
+                            }
+
+                            sort($fix);
+
+                            return $fix;
+                        }
+
+                        var_dump(findPairs($data2));
+
+                        @endphp
+                        <div class="w-100 bg-dark px-3 py-2 mt-3">
+                            <p class="text-white">PHP Function :</p>
+                            <img src="{{ asset('2_php.png') }}" width="100%"/>
+                            <a href="https://github.com/ryanspandu/ais/blob/master/resources/views/home.blade.php" class="text-success" target="_blank">Source Code</a> 
+                            <i class="bi bi-arrow-right text-success"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
                     <img src="{{ asset('3.png') }}" width="100%"/>
                 </div>
               </div>
