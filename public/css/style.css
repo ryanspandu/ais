@@ -1,0 +1,57 @@
+.main-nav{
+    background: #2416a3;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-nav .content{
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card{
+    width: 100% !important;
+    max-width: 900px !important;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card .head{
+    height: 100px;
+    background: #0d055e;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card .photo{
+    width: 65px;
+    height: 65px;
+    background-image: url('https://media-exp2.licdn.com/dms/image/C5603AQENYM0oSJ54Yw/profile-displayphoto-shrink_800_800/0/1642437060585?e=1660780800&v=beta&t=gXh75i-MF6QGzivBYnq0GGG-aOnARsKkUHnaDCjioWE');
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.table thead{
+    background: #EFF0EE !important;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+    background: #B6D7F6 !important;
+}

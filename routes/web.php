@@ -19,3 +19,4 @@ Route::get('/laravel', function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/cv-download', [HomeController::class, 'cv'])->name('cv.download');
