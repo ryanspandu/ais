@@ -225,6 +225,10 @@
                         <div class="w-100 bg-dark px-3 py-2 mt-3">
                             <p class="text-white">PHP Function :</p>
                             <img src="{{ asset('2_php.png') }}" width="100%"/>
+
+                            <p class="text-white mt-4">JS Function :</p>
+                            <img src="{{ asset('2_js.png') }}" width="100%"/>
+
                             <a href="https://github.com/ryanspandu/ais/blob/master/resources/views/home.blade.php" class="text-success" target="_blank">Source Code</a> 
                             <i class="bi bi-arrow-right text-success"></i>
                         </div>
@@ -278,6 +282,29 @@
 <script>
 $(document).ready(function () {
     $('#table1').DataTable();
+
+    var data = [1,-1,3,-4,5,-2,7,4,2];
+
+    function findPairs(d){
+        var fix = [];
+        var count = 0;
+
+        var length = d.length - 1;
+        var count = 0;
+
+        for (var i = 0; i <= length; i++) {
+            for (var j = i + 1; j <= length; j++) {
+                if (d[i] + d[j] == 0) {
+                    fix.push(Math.abs(d[j]));
+                    count++;
+                }
+            }
+        }
+
+        return fix.sort();
+    }
+
+    console.log(findPairs(data));
 });
 </script>
 </html>
