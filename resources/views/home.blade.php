@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Programmer Test - Ryan Pandu</title>
+    <title>Ryan Pandu Prasetya</title>
     <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -22,7 +22,7 @@
         <div class="content">
             <div class="d-flex flex-row align-items-center">
                 <img src="{{ asset('logo.png') }}" width="40px"/>
-                <p class="mb-0 fw-bold text-white ms-3">Programmer Test</p>
+                <p class="mb-0 fw-bold text-white ms-3">AIS</p>
             </div>
             <a href="https://github.com/ryanspandu/ais" target="_blank" class="text-white">Github Repo <i class="bi bi-arrow-right text-white"></i></a>
         </div>
@@ -51,6 +51,7 @@
                 </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
+                {{-- Answer number 1 --}}
                 <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
                     <img src="{{ asset('1.png') }}" width="100%"/>
                     <hr class="w-100"/>
@@ -187,8 +188,10 @@
                         </div>
                     </div>
                 </div>
+                {{-- Answer number 2 --}}
                 <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
                     <img src="{{ asset('2.png') }}" width="100%"/>
+                    <hr class="w-100"/>
                     <div class="bg-gray p-3">
                         <p class="fw-bold">Answer :</p>
 
@@ -227,8 +230,45 @@
                         </div>
                     </div>
                 </div>
+                {{-- Answer number 3 --}}
                 <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
                     <img src="{{ asset('3.png') }}" width="100%"/>
+                    <hr class="w-100"/>
+                    <div class="bg-gray p-3">
+                        <p class="fw-bold">Answer :</p>
+                        <div class="w-100 bg-dark px-3 py-2 mt-3 text-white">
+                            <p class="mb-0">
+                                Height of the table + cat - tortoise = 170cm
+                            </p>
+                            <p class="">
+                                Height of the table - cat + tortoise = 130cm
+                            </p>
+
+                            <p class="">
+                                So we get : 
+                            </p>
+
+                            <p class="mb-0">
+                                x+y-z = 170cm
+                            </p>
+
+                            <p class="">
+                                x-y+z = 130cm
+                            </p>
+
+                            <p class="mb-0">
+                                Height of two tables = 170cm + 130cm = 300cm
+                            </p>
+
+                            <p class="">
+                                So after that to get one table height is = 300cm / 2
+                            </p>
+
+                            <p class="fw-bold">
+                                One table height is 150cm
+                            </p>
+                        </div>
+                    </div>
                 </div>
               </div>
         </div>
